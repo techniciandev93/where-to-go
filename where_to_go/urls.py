@@ -23,7 +23,8 @@ from where_to_go import views
 urlpatterns = ([
     path('admin/', admin.site.urls),
     path('', views.show_main_page),
-    path('places/', include('places.urls'))
+    path('places/', include('places.urls')),
+    path('tinymce/', include('tinymce.urls'))
 ])
 
 
