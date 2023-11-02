@@ -31,3 +31,11 @@ python manage.py runserver
 python manage.py createsuperuser
 ```
 И авторизуйтесь http://127.0.0.1:8000/admin/
+
+## Демо сайта
+[Демо](https://technician03.pythonanywhere.com/) \
+[Админка](https://technician03.pythonanywhere.com/admin/)
+```
+Логин: admin
+Пароль: admin
+```
