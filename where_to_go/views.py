@@ -4,14 +4,14 @@ from places.models import Place
 
 
 def show_main_page(request):
-    places_geojson = {
+    geojson_places = {
         'type': 'FeatureCollection',
         'features': []
     }
 
     places = Place.objects.all()
     for place in places:
-        places_geojson['features'].append(
+        geojson_places['features'].append(
             {
                 'type': 'Feature',
                 'geometry': {
@@ -26,5 +26,5 @@ def show_main_page(request):
             }
         )
 
-    context = {'places_geojson': places_geojson}
+    context = {'geojson_places': geojson_places}
     return render(request, 'index.html', context)
