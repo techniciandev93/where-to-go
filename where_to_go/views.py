@@ -10,7 +10,7 @@ def show_main_page(request):
     }
 
     places = Place.objects.all()
-    for place in places:
+    for place in places.iterator():
         geojson_places['features'].append(
             {
                 'type': 'Feature',
