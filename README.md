@@ -39,3 +39,9 @@ python manage.py createsuperuser
 Логин: admin
 Пароль: admin
 ```
+
+## Загрузка мест из json файла
+[Пример json файла](https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/%D0%90%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%D1%84%D0%B5%20Bizone.json)
+```
+python manage.py load_place http://адрес/файла.json
+```
