@@ -12,8 +12,8 @@ pip install -r requirements.txt
 
 
 -   ALLOWED_HOSTS=смотреть [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts).
--   SECRET_KEY=Ваш секретный ключ для django
--   DEBUG_DJANGO=true или false
+-   SECRET_KEY=Ваш секретный ключ для django, смотреть [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-SECRET_KEY).
+-   DEBUG_DJANGO=true или false, смотреть [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DEBUG).
 
 
 ## Как запустить
