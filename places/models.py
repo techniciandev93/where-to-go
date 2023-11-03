@@ -5,8 +5,8 @@ from tinymce.models import HTMLField
 
 class Place(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок', unique=True)
-    description_short = HTMLField(max_length=300, verbose_name='Короткое описание')
-    description_long = HTMLField(verbose_name='Полное описание')
+    short_description = models.TextField(verbose_name='Короткое описание', blank=True)
+    long_description = HTMLField(verbose_name='Полное описание', blank=True)
     coordinates_lng = models.FloatField(verbose_name='Долгота')
     coordinates_lat = models.FloatField(verbose_name='Широта')
 
@@ -19,8 +19,8 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(null=True, blank=True, verbose_name='Изображение')
-    position = models.IntegerField(verbose_name='Позиция', default=0)
+    image = models.ImageField(verbose_name='Изображение')
+    position = models.IntegerField(verbose_name='Позиция', default=0, db_index=True)
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Место', related_name='images')
 
     class Meta:
@@ -33,7 +33,8 @@ class Image(models.Model):
 
     def get_preview_image(self):
         if self.image:
-            return format_html(f'<img src="{self.image.url}" style="max-width:200px; max-height:200px"/>')
+            return format_html('<img src="{}" style="max-width:200px; max-height:200px"/>',
+                               self.image.url)
         return 'Здесь будет изображение'
 
     get_preview_image.short_description = 'Вывод изображения'

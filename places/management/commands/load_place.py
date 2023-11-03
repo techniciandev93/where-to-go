@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+
 from places.services import loading_place
 
 
